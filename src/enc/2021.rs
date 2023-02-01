@@ -7,7 +7,7 @@ use base64::{engine, Engine};
 use flate2::read::GzDecoder;
 use libaes::Cipher;
 use crate::enc::enc::RainbowTable;
-use crate::util::get_xml_tag;
+use crate::util::{format_radix, get_xml_tag};
 
 pub struct ENC2021 {
     pub salt: [u8; 42],
@@ -35,7 +35,7 @@ impl RainbowTable for ENC2021 {
                 thread::spawn(move || {
                     let mut file = OpenOptions::new().create(true).append(true).open(format!("thread_{}.txt", thread_id)).unwrap();
                     for n in (thread_id * part)..((thread_id + 1) * part) + 1 {
-                        let password = format!("{:0>8}", n);
+                        let password = format!("{:0>8}", format_radix(n as u32, 8));
                         let mut out = [0u8; 32];
                         pbkdf2_hmac_sha256(password.as_bytes(), &self.salt, self.iterations, &mut out);
                         writeln!(file, "{}:{}", password, hex::encode(out)).unwrap();
