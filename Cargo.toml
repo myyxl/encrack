@@ -1,0 +1,15 @@
+[package]
+name = "encrack"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+base64 = "0.21.0"
+clap = { version = "4.1.4", features = ["derive"] }
+fastpbkdf2 = { path = "./rust-fastpbkdf2" }
+flate2 = "1.0.25"
+hex = "0.4.3"
+libaes = "0.6.4"
+sha1_smol = "1.0.0"
