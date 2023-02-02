@@ -3,4 +3,4 @@ encrack was made to highlight vulnerabilities and bad code practices present in 
 
 When a teacher wants to edit information about a student, they have to download an archive containing the lastest ENC and the student information in an encrypted xml file. After starting the ENC, they have to select the path to the encrypted xml file and provide a password to decrypt the file. This password is shown after downloading the archive from the website. encrack can crack these encrypted files without knowing the password.
 
-Cracking these files is possible because of a self-made and unsecure key derivation function. 
+Cracking these files is possible because of a self-made and unsecure key derivation function.
